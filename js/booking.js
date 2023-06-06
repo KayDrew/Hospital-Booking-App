@@ -1,5 +1,43 @@
 function Booking(){
+    var patientInfo = [];
+    var patientId = [];
 
+    function setPatientInfo(patientID, name, surname, age, email, contact){
+        if(patientInfo.length === 0){
+            var patientFormat = {
+                id: patientID,
+                patientName: name,
+                patientSurname: surname,
+                patientAge: age,
+                patientEmail: email,
+                patientContact: contact
+            }
+
+            patientInfo.push(patientFormat);
+            patientId.push(patientID);
+            console.log(patientId);
+        } else { //the array is NOT empty
+            //loop through patient Id array 
+            for(let i = 0; i < patientId.length; i++){
+                if(patientId.includes(patientID) == false){
+                    var patientFormat = {
+                        id: patientID,
+                        patientName: name,
+                        patientSurname: surname,
+                        patientAge: age,
+                        patientEmail: email,
+                        patientContact: contact
+                    }
+        
+                    patientInfo.push(patientFormat);
+                    patientId.push(patientID);
+                }
+            }
+        }
+        
+        
+    }
+    
     //function  for sending email
     function  sendMail(name,fromName,email,subject,message){
             
@@ -31,9 +69,20 @@ function Booking(){
             
     }
 
+        //getters
+        function getPatientInfo(){
+            return patientInfo;
+        }
+
+        function getPatientIDs(){
+            return patientId;
+        }
 
     return{
-        sendMail
+        sendMail,
+        setPatientInfo,
+        getPatientInfo,
+        getPatientIDs
     }
 
 }
