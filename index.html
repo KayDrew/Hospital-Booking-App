@@ -24,8 +24,8 @@
         </div>
         <div class="form">
             <section>
-                <label for="deparments">Department:</label>
-                <select id="deparments" name="deparments">
+                <label for="departments">Department:</label>
+                <select id="departments" name="departments">
                     <option value="optionA">Option A</option>
                     <option value="optionB">Option B</option>
                     <option value="optionC">Option C</option>
@@ -33,11 +33,11 @@
                 </select>
                 <label for="appointmentDate">Date:</label>
                 <input type="datetime-local" id="appointmentDate" name="appointmentDate">
-                <input class="btn" type="button" value="Next">
+                <input class="btn nextBtn" type="button" value="Next">
             </section>
             <section>
-                <label for="name">Name and Surname:</label>
-                <input type="text" name="name" id="name">
+                <label for="nameSurname">Name and Surname:</label>
+                <input type="text" name="nameSurname" id="nameSurname">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender">
                     <option value="male">Male</option>
@@ -52,10 +52,15 @@
                 <input type="email" name="email" id="email">
                 <label for="idNumber">ID Number:</label>
                 <input type="number" name="idNumber" id="idNumber">
-                <input class="btn" type="button" value="Back">
-                <input class="btn" type="button" value="Book Now">
+                <input class="btn backBtn" type="button" value="Back">
+                <input class="btn bookNowBtn" type="button" value="Book Now">
             </section>
-            <section></section>
+            <section>
+                <div class="message">
+                    <p>Your booking has been made.</p>
+                    <p>Please check your e-mail for the link to the QR code you need on the day of your appointment</p>
+                </div>
+            </section>
         </div>
     </div>
 
