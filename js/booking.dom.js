@@ -26,8 +26,22 @@ const bookNowBtnElem = document.querySelector(".bookNowBtn");
 // *End of testing
 
 // Add event listener to button
+nextBtnElem.addEventListener("click",nextBtn_onClick);
+backBtnElem.addEventListener("click", backBtn_onClick);
+bookNowBtnElem.addEventListener("click",bookNowBtn_onClick);
 
 // Instantiate the factory function
+const bookingApp = Booking();
 
 // DOM events
+function nextBtn_onClick() {
 
+}
+
+function backBtn_onClick() {
+
+}
+
+function bookNowBtn_onClick() {
+
+}
