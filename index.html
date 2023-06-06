@@ -17,5 +17,46 @@
 </script>
   </head>
  <body>
+    <div class="container">
+        <div class="headerSection">
+            <h1>Bara Hospital Appointment Booking Form</h1>
+            <img src="./images/CHBAH_LOGO_full.png" alt="Bara Hospital logo" width="200px">
+        </div>
+        <div class="form">
+            <section>
+                <label for="deparments">Department:</label>
+                <select id="deparments" name="deparments">
+                    <option value="optionA">Option A</option>
+                    <option value="optionB">Option B</option>
+                    <option value="optionC">Option C</option>
+                    <option value="optionD">Option D</option>
+                </select>
+                <label for="appointmentDate">Date:</label>
+                <input type="datetime-local" id="appointmentDate" name="appointmentDate">
+                <input class="btn" type="button" value="Next">
+            </section>
+            <section>
+                <label for="name">Name and Surname:</label>
+                <input type="text" name="name" id="name">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" name="contactNumber" id="contactNumber">
+                <label for="email">E-Mail Address:</label>
+                <input type="email" name="email" id="email">
+                <label for="idNumber">ID Number:</label>
+                <input type="number" name="idNumber" id="idNumber">
+                <input class="btn" type="button" value="Book Now">
+            </section>
+            <section></section>
+        </div>
+    </div>
+
  </body>
  </html>
