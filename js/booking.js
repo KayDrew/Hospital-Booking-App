@@ -1,14 +1,16 @@
+let uniqueID=localStorage.getItem("patientID");
+let count=-1;
+
 function Booking(){
     var patientInfo = [];
     var patientId = [];
-    var qrcode={};
-
-    function setPatientInfo(patientID, name, surname, age, email, contact){
+   
+   
+    function setPatientInfo(patientID, name, age,gender, email, contact){
         if(patientInfo.length === 0){
             var patientFormat = {
                 id: patientID,
                 patientName: name,
-                patientSurname: surname,
                 patientAge: age,
                 patientEmail: email,
                 patientContact: contact
@@ -16,10 +18,11 @@ function Booking(){
 
             patientInfo.push(patientFormat);
             patientId.push(patientID);
+            count++;
+            localStorage.setItem("patientID",JSON.stringify(patientId));
             console.log(patientId);
             
-            //create a new qr code        
-            qrcode = new QRCode("qrcode", patientID);
+   
             
         } else { //the array is NOT empty
             //loop through patient Id array 
@@ -28,7 +31,6 @@ function Booking(){
                     var patientFormat = {
                         id: patientID,
                         patientName: name,
-                        patientSurname: surname,
                         patientAge: age,
                         patientEmail: email,
                         patientContact: contact
@@ -36,7 +38,9 @@ function Booking(){
         
                     patientInfo.push(patientFormat);
                     patientId.push(patientID);
-                     qrcode = new QRCode("qrcode", patientID);
+                    localStorage.setItem("patientID",JSON.stringify(patientId));
+                    count++;
+                     
                 }
             }
         }
@@ -44,36 +48,6 @@ function Booking(){
         
     }
     
-    //function  for sending email
-    function  sendMail(name,fromName,email,subject,message){
-            
-        var params={
-            name: name,
-            from_name: "Baragwanath Hospital Management",
-            email: email,
-            subject:subject,
-            message: message
-        }
-
-        const serviceID="service_jjy4npj";
-        const templateID="template_nm641b6";
-
-        emailjs.send(serviceID,templateID,params).
-        then(
-            res=>{
-            name.value="";
-            email.value="";
-            message.value="";
-            console.log(res);
-
-            alert("email sent successfully!");
-
-            return "sent successfully";
-            }
-
-        ).catch((err)=> console.log(err));
-            
-    }
 
         //getters
         function getPatientInfo(){
@@ -84,15 +58,13 @@ function Booking(){
             return patientId;
         }
         
-        function  getQRCode(){
-return "hello";
-     }
+        
     return{
-        sendMail,
+     
         setPatientInfo,
         getPatientInfo,
         getPatientIDs,
-        getQRCode
+        
     }
 
 }
