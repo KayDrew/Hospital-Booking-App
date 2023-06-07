@@ -191,5 +191,6 @@ function bookNowBtn_onClick() {
         ).catch((err)=> console.log(err));
             
    
-    
+    console.log(uniqueID);
+    console.log(count);
 }
