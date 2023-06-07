@@ -33,9 +33,26 @@ bookNowBtnElem.addEventListener("click",bookNowBtn_onClick);
 // Instantiate the factory function
 const bookingApp = Booking();
 
+//Functions to get the selected Department and Gender options respectively
+
+function checkSelectedDepartment() {
+    var selectElement = document.querySelector("#departments");
+    var selectedIndex = selectElement.selectedIndex;
+    var selectedOption = selectElement.options[selectedIndex].value;
+    return selectedOption;
+}
+
+function checkSelectedGender() {
+    var selectElement = document.querySelector("#gender");
+    var selectedIndex = selectElement.selectedIndex;
+    var selectedOption = selectElement.options[selectedIndex].value;
+    return selectedOption;
+}
+
 // DOM events
 function nextBtn_onClick() {
-
+    console.log(departmentElem.value);
+    console.log(dateElem.value.split('T'));
 }
 
 function backBtn_onClick() {
@@ -45,3 +62,4 @@ function backBtn_onClick() {
 function bookNowBtn_onClick() {
 
 }
+

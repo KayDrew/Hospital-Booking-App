@@ -26,10 +26,10 @@
             <section>
                 <label for="departments">Department:</label>
                 <select id="departments" name="departments">
-                    <option value="optionA">Option A</option>
-                    <option value="optionB">Option B</option>
-                    <option value="optionC">Option C</option>
-                    <option value="optionD">Option D</option>
+                    <option value="" disabled selected> Select a department </option>
+                    <option value="option-a"> Option A</option>
+                    <option value="option-b"> Option B</option>
+                    <option value="option-c"> Option C </option>
                 </select>
                 <label for="appointmentDate">Date:</label>
                 <input type="datetime-local" id="appointmentDate" name="appointmentDate">
@@ -40,6 +40,7 @@
                 <input type="text" name="nameSurname" id="nameSurname">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender">
+                    <option disabled selected> Select a gender </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
