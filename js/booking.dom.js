@@ -36,11 +36,17 @@ const successInfoElem = document.getElementsByClassName("successInfo");
 nextBtnElem.addEventListener("click",nextBtn_onClick);
 backBtnElem.addEventListener("click", backBtn_onClick);
 bookNowBtnElem.addEventListener("click",bookNowBtn_onClick);
+// Keyup event for the ID Number field
+idNumberElem.addEventListener("keyup",idNumber_keyUp)
 
 // Instantiate the factory function
 const bookingApp = Booking();
 
 // DOM events
+function idNumber_keyUp() {
+
+}
+
 function nextBtn_onClick() {
     // Hide first section
     landingInfoElem[0].style.visibility = 'hidden';
