@@ -59,14 +59,8 @@ function checkSelectedGender() {
 }
 
 // DOM events
-<<<<<<< HEAD
-function nextBtn_onClick() {
-    console.log(departmentElem.value);
-    console.log(dateElem.value.split('T'));
-=======
 function idNumber_keyUp() {
 
->>>>>>> b68d4c9b807e49392cca2e636180c2ef8e1c16df
 }
 
 function nextBtn_onClick() {
