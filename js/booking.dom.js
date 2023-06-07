@@ -7,7 +7,7 @@ const genderElem = document.getElementById("gender");
 const ageElem = document.querySelector("#age");
 const contactNumberElem = document.querySelector("#contactNumber");
 const emailAddressElem = document.querySelector("#email");
-const idNumberElem = document.querySelector("#idNumber");
+let idNumberElem = document.querySelector("#idNumber");
 const backBtnElem = document.querySelector(".backBtn");
 const bookNowBtnElem = document.querySelector(".bookNowBtn");
 const landingInfoElem = document.getElementsByClassName("landingInfo");
@@ -44,7 +44,55 @@ const bookingApp = Booking();
 
 // DOM events
 function idNumber_keyUp() {
-
+    if(idNumberElem.value.length === 13){
+        var event = new Event("change");
+        var result = getAgeAndGender(idNumberElem.value);
+        
+        ageElem.value = result.age;
+        
+        genderElem.selectedIndex = result.gender;
+        genderElem.dispatchEvent(event);
+    }
+}
+function getAgeAndGender(idNumber) {
+    var birthdate = idNumber.substr(0, 6);
+  
+    // Extract gender and citizenship information from ID number
+    var genderCode = idNumber.substr(6, 4);
+    
+    // Extract birth year, month, and day from birthdate
+    var year = parseInt(birthdate.substr(0, 2), 10);
+    var month = parseInt(birthdate.substr(2, 2), 10);
+    var day = parseInt(birthdate.substr(4, 2), 10);
+  
+    // Calculate current year, month, and day
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear()% 100; // Get the last two digits of the current year
+    var currentMonth = currentDate.getMonth() + 1; // Months are zero-based, so add 1
+    var currentDay = currentDate.getDate();
+  
+    //build full birth year
+    if(year >= currentYear){
+        year = "19"+year;
+    }
+    else{
+        year = "20"+year;
+    }
+    
+    //get full currentYear for age calculation
+    currentYear = currentDate.getFullYear();
+    
+    // Calculate age
+    var age = currentYear - year;
+  
+    // Adjust age based on current month and day
+    if (currentMonth < month || (currentMonth === month && currentDay < day)) {
+        age--;
+    }
+  
+    // Determine gender based on the gender code
+    var gender = genderCode >= 5000 ? 0 : 1;
+    return { age: age, gender: gender };
 }
 
 function nextBtn_onClick() {
