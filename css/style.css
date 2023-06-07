@@ -25,6 +25,9 @@ section {
     flex-direction: column;
     flex-wrap: nowrap;
 }
+.formField {
+    width: 80%;
+}
 .landingInfo {
     visibility: visible;
 }
