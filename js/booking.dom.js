@@ -13,6 +13,8 @@ const bookNowBtnElem = document.querySelector(".bookNowBtn");
 const landingInfoElem = document.getElementsByClassName("landingInfo");
 const personalInfoElem = document.getElementsByClassName("personalInfo");
 const successInfoElem = document.getElementsByClassName("successInfo");
+const qrCode=document.querySelector("#qrcode");
+const book= document.querySelector("#bookNow");
 
 
 // *Testing the DOM References
@@ -32,10 +34,7 @@ const successInfoElem = document.getElementsByClassName("successInfo");
     console.log(successInfoElem);
 // *End of testing
 
-// Add event listener to button
-nextBtnElem.addEventListener("click",nextBtn_onClick);
-backBtnElem.addEventListener("click", backBtn_onClick);
-bookNowBtnElem.addEventListener("click",bookNowBtn_onClick);
+
 // Keyup event for the ID Number field
 idNumberElem.addEventListener("keyup",idNumber_keyUp)
 
@@ -87,4 +86,12 @@ function bookNowBtn_onClick() {
     // Show third section
     successInfoElem[0].style.visibility = 'visible';
     successInfoElem[0].style.display = 'flex';
+    
+    //generate a new qr code
+    qrCode.innerHTML= bookingApp.getQRCode();
 }
+
+// Add event listener to button
+nextBtnElem.addEventListener("click",nextBtn_onClick);
+backBtnElem.addEventListener("click", backBtn_onClick);
+bookNowBtnElem.addEventListener("click",bookNowBtn_onClick);
