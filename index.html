@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html lang="en">
@@ -134,4 +135,74 @@
 
  </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Booking App</title>
+ <link rel="stylesheet" href="./css/style.css"/>
+ <script src="./js/booking.js" defer></script>
+ <script src="./js/booking.dom.js" defer></script>
+ <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("sO3tRex7X0sQGM0hm");
+   })();
+</script>
+  </head>
+ <body>
+    <div class="container">
+        <div class="headerSection">
+            <h1>Bara Hospital Appointment Booking Form</h1>
+            <img src="./images/CHBAH_LOGO_full.png" alt="Bara Hospital logo" width="200px">
+        </div>
+        <div class="form">
+            <section class="landingInfo">
+                <label for="departments">Department:</label>
+                <select id="departments" name="departments">
+                    <option value="" disabled selected> Select a department </option>
+                    <option value="option-a"> Option A</option>
+                    <option value="option-b"> Option B</option>
+                    <option value="option-c"> Option C </option>
+                </select>
+                <label for="appointmentDate">Date:</label>
+                <input type="datetime-local" id="appointmentDate" name="appointmentDate">
+                <input class="btn nextBtn" type="button" value="Next">
+            </section>
+            <section class="personalInfo">
+                <label for="nameSurname">Name and Surname:</label>
+                <input type="text" name="nameSurname" id="nameSurname">
+                <label for="idNumber">ID Number:</label>
+                <input type="number" name="idNumber" id="idNumber">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="" disabled selected> Select a gender </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" name="contactNumber" id="contactNumber">
+                <label for="email">E-Mail Address:</label>
+                <input type="email" name="email" id="email">
+                <input class="btn backBtn" type="button" value="Back">
+                <input class="btn bookNowBtn" type="button" value="Book Now">
+            </section>
+            <section class="successInfo">
+                <div class="message">
+                    <p>Your booking has been made.</p>
+                    <p>Please check your e-mail for the link to the QR code you need on the day of your appointment</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+ </body>
+>>>>>>> 7ac7cd3a7917f54543bb3f96ca2dc439b327c502
  </html>

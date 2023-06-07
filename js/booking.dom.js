@@ -63,7 +63,7 @@ function getAgeAndGender(idNumber) {
     var genderCode = idNumber.substr(6, 4);
     
     // Extract birth year, month, and day from birthdate
-    var year = parseInt(birthdate.substr(0, 2), 10);
+    var year = birthdate.substr(0, 2);
     var month = parseInt(birthdate.substr(2, 2), 10);
     var day = parseInt(birthdate.substr(4, 2), 10);
   
@@ -85,7 +85,7 @@ function getAgeAndGender(idNumber) {
     currentYear = currentDate.getFullYear();
     
     // Calculate age
-    var age = currentYear - year;
+    var age = currentYear - parseInt(year,10);
   
     // Adjust age based on current month and day
     if (currentMonth < month || (currentMonth === month && currentDay < day)) {
