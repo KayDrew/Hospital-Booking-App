@@ -56,6 +56,7 @@ function idNumber_keyUp() {
         genderElem.dispatchEvent(event);
     }
 }
+
 function getAgeAndGender(idNumber) {
     var birthdate = idNumber.substr(0, 6);
   
@@ -143,5 +144,52 @@ function bookNowBtn_onClick() {
 
     // get selected gender
     var genderSelected = genderElem.options[genderElem.selectedIndex].value;
+    
+    //create instance of getAgeAndGender function 
+    
+    let getInfo= getAgeAndGender(idNumberElem.value);
+
+    var name= nameSurnameElem.value;
+    var patientID= idNumberElem.value;
+    var email = emailAddressElem.value;
+    var age=getInfo.age;
+    var gender= getInfo.gender;
+    var contact= contactNumberElem.value;
+    
+    //retrieve  information  from user
+
+    bookingApp.setPatientInfo(patientID,name,age,gender, email,contact);  
+        
+    var subject="CONFIRMATION OF BOOKING";
+    var message="Your booking for " + departmentSelected +" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital."
+
+
+            var params={
+            name: name,
+            from_name: "Baragwanath Hospital Management",
+            email: email,
+            subject:subject,
+            message: message
+        }
+
+        const serviceID="service_jjy4npj";
+        const templateID="template_nm641b6";
+
+        emailjs.send(serviceID,templateID,params).
+        then(
+            res=>{
+            name.value="";
+            email.value="";
+            message.value="";
+            console.log(res);
+
+            alert("email sent successfully!");
+
+            return "sent successfully";
+            }
+
+        ).catch((err)=> console.log(err));
+            
+   
     
 }
