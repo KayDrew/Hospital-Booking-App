@@ -1,6 +1,7 @@
 function Booking(){
     var patientInfo = [];
     var patientId = [];
+    var qrcode={};
 
     function setPatientInfo(patientID, name, surname, age, email, contact){
         if(patientInfo.length === 0){
@@ -16,6 +17,10 @@ function Booking(){
             patientInfo.push(patientFormat);
             patientId.push(patientID);
             console.log(patientId);
+            
+            //create a new qr code        
+            qrcode = new QRCode("qrcode", patientID);
+            
         } else { //the array is NOT empty
             //loop through patient Id array 
             for(let i = 0; i < patientId.length; i++){
@@ -31,6 +36,7 @@ function Booking(){
         
                     patientInfo.push(patientFormat);
                     patientId.push(patientID);
+                     qrcode = new QRCode("qrcode", patientID);
                 }
             }
         }
@@ -77,12 +83,16 @@ function Booking(){
         function getPatientIDs(){
             return patientId;
         }
-
+        
+        function  getQRCode(){
+return "hello";
+     }
     return{
         sendMail,
         setPatientInfo,
         getPatientInfo,
-        getPatientIDs
+        getPatientIDs,
+        getQRCode
     }
 
 }
