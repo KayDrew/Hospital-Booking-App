@@ -94,7 +94,7 @@ function getAgeAndGender(idNumber) {
     }
   
     // Determine gender based on the gender code
-    var gender = genderCode >= 5000 ? 0 : 1;
+    var gender = genderCode >= 5000 ? 1 : 2;
     return { age: age, gender: gender };
 }
 
