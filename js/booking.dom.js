@@ -34,28 +34,16 @@ const book= document.querySelector("#bookNow");
     console.log(successInfoElem);
 // *End of testing
 
+// Add event listeners to buttons
+nextBtnElem.addEventListener('click',nextBtn_onClick);
+backBtnElem.addEventListener('click',backBtn_onClick);
+bookNowBtnElem.addEventListener('click',bookNowBtn_onClick);
 
 // Keyup event for the ID Number field
 idNumberElem.addEventListener("keyup",idNumber_keyUp)
 
 // Instantiate the factory function
 const bookingApp = Booking();
-
-//Functions to get the selected Department and Gender options respectively
-
-function checkSelectedDepartment() {
-    var selectElement = document.querySelector("#departments");
-    var selectedIndex = selectElement.selectedIndex;
-    var selectedOption = selectElement.options[selectedIndex].value;
-    return selectedOption;
-}
-
-function checkSelectedGender() {
-    var selectElement = document.querySelector("#gender");
-    var selectedIndex = selectElement.selectedIndex;
-    var selectedOption = selectElement.options[selectedIndex].value;
-    return selectedOption;
-}
 
 // DOM events
 function idNumber_keyUp() {
@@ -151,6 +139,11 @@ function bookNowBtn_onClick() {
     successInfoElem[0].style.visibility = 'visible';
     successInfoElem[0].style.display = 'flex';
     
+    // get selected department
+    var departmentSelected = departmentElem.options[departmentElem.selectedIndex].value;
+
+    // get selected gender
+    var genderSelected = genderElem.options[genderElem.selectedIndex].value;
     //generate a new qr code
     qrCode.innerHTML= bookingApp.getQRCode();
 }
