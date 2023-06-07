@@ -85,24 +85,22 @@
 </body>
 
 
-
+<script  src="./js/booking.js"></script>
 <script>
-
-
-
-
-
-
-
-
-
+	
+	if(count>=0){
+		
+	let ids= JSON.parse(localStorage.getItem("patientID"));
+	var patientID= ids[count];
+     var qrcode = new QRCode("qrcode", patientID);
+}
 
 
 </script>
 
-<script  src="./js/booking.js"></script>
 
-<script  src="./js/booking.dom.js"></script>
+
+
 
 </html>
 
