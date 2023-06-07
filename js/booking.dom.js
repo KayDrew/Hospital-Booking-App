@@ -13,8 +13,7 @@ const bookNowBtnElem = document.querySelector(".bookNowBtn");
 const landingInfoElem = document.getElementsByClassName("landingInfo");
 const personalInfoElem = document.getElementsByClassName("personalInfo");
 const successInfoElem = document.getElementsByClassName("successInfo");
-const qrCode=document.querySelector("#qrcode");
-const book= document.querySelector("#bookNow");
+
 
 
 // *Testing the DOM References
@@ -144,6 +143,5 @@ function bookNowBtn_onClick() {
 
     // get selected gender
     var genderSelected = genderElem.options[genderElem.selectedIndex].value;
-    //generate a new qr code
-    qrCode.innerHTML= bookingApp.getQRCode();
+    
 }
