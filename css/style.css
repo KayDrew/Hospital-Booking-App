@@ -25,7 +25,13 @@ section {
     flex-direction: column;
     flex-wrap: nowrap;
 }
-
+.landingInfo {
+    visibility: visible;
+}
+.personalInfo, .successInfo {
+    visibility: hidden;
+    display: none;
+}
 .btn {
     background-color: #ee4135;
     border:0px solid;
