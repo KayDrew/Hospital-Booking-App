@@ -1,9 +1,11 @@
 let uniqueID=localStorage.getItem("patientID");
-let count=-1;
+let count= localStorage.getItem("count");
+
 
 function Booking(){
     var patientInfo = [];
     var patientId = [];
+    let increment=-1;
    
    
     function setPatientInfo(patientID, name, age,gender, email, contact){
@@ -18,9 +20,17 @@ function Booking(){
 
             patientInfo.push(patientFormat);
             patientId.push(patientID);
-            count++;
             localStorage.setItem("patientID",JSON.stringify(patientId));
-            console.log(patientId);
+            
+            if(count===null){
+         count=0;
+           }
+           
+           else{
+count++;}
+
+
+            localStorage.setItem("count",count); 
             
    
             
@@ -39,8 +49,15 @@ function Booking(){
                     patientInfo.push(patientFormat);
                     patientId.push(patientID);
                     localStorage.setItem("patientID",JSON.stringify(patientId));
-                    count++;
-                     
+                    
+                   if(count===null){
+                    count=0;
+                 }
+           
+               else{
+            count++;
+                }
+                    localStorage.setItem("count",count);                    
                 }
             }
         }
