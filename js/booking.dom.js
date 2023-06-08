@@ -161,7 +161,7 @@ function bookNowBtn_onClick() {
     bookingApp.setPatientInfo(patientID,name,age,gender, email,contact);  
         
     var subject="CONFIRMATION OF BOOKING";
-    var message="Your booking for " + departmentSelected +" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital."
+    var message="Your booking for " + departmentSelected +" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
 
 
             var params={
@@ -191,6 +191,5 @@ function bookNowBtn_onClick() {
         ).catch((err)=> console.log(err));
             
    
-    console.log(uniqueID);
-    console.log(count);
+    
 }
