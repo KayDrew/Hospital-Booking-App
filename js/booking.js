@@ -13,8 +13,10 @@ function Booking(){
                 id: patientID,
                 patientName: name,
                 patientAge: age,
+                patientGender: gender,
                 patientEmail: email,
                 patientContact: contact
+               
             }
 
             patientInfo.push(patientFormat);
@@ -40,6 +42,7 @@ count++;}
                         id: patientID,
                         patientName: name,
                         patientAge: age,
+                        patientGender: gender,
                         patientEmail: email,
                         patientContact: contact
                     }

@@ -154,6 +154,19 @@ function bookNowBtn_onClick() {
     var email = emailAddressElem.value;
     var age=getInfo.age;
     var gender= getInfo.gender;
+    
+    if(gender===1){
+gender="male"
+
+}
+
+else if(gender===2){
+gender="female";
+}
+
+else{
+
+gender="other";}
     var contact= contactNumberElem.value;
     
     //retrieve  information  from user
