@@ -4,6 +4,7 @@ html{
     background-color: #FFFFFF;
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
+    background-color: lightgrey;
 }
 .container {
     max-width: 1080px;
