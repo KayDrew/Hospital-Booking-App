@@ -111,6 +111,7 @@ function nextBtn_onClick() {
 errorMessage.style.visibility="visible"
 errorMessage.innerHTML="Please complete  all fields";
 
+clearTimeout();
 setTimeout(function(){
 errorMessage.style.visibility="hidden";
 
@@ -187,7 +188,7 @@ gender="other";}
      
 
     var subject="CONFIRMATION OF BOOKING";
-    var message="Your booking for " + departmentSelected + " at "+dateElem.value+" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
+    var message="Your booking for the " + departmentSelected + " department at "+dateElem.value+" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
 
 
             var params={
@@ -228,6 +229,7 @@ errorMessage.style.visibility="visible";
     
     errorMessage.innerHTML=bookingApp.getErrorMessage();
     
+    clearTimeout();
     setTimeout(function(){
 errorMessage.style.visibility="hidden";
 

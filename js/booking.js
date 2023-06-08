@@ -5,6 +5,8 @@ let uniqueID=localStorage.getItem("patientIfo");
 function Booking(){
     var patientInfo = [];
     var patientId=[];
+let regexName= /^([a-zA-Z ]{7,})$/;
+
     var errorMessage="success";    
    
    
@@ -12,6 +14,14 @@ function Booking(){
     	
     if(patientID && name && age && gender && email && contact){
     	
+    if(regexName.test(name)){
+    
+    if(patientID.length==13){
+    	
+    if(contact.length===10){
+    	
+    if(email.length>12){
+    
     errorMessage ="success";
 
         if(patientInfo.length === 0){
@@ -54,12 +64,39 @@ function Booking(){
                 }
             }
         }
-        
+
+}
+
+else {errorMessage="Please enter valid email address";
+}
+
+   }     
+
+else{
+errorMessage="Please enter valid contact number";
+
+}        
+   }
+else{
+
+errorMessage="enter valid ID or passport  number";
+
+}
+ 
+ }
+ 
+ 
+ else {
+
+errorMessage="Please enter a valid name & surname";
+
+}
+       
 }
 
 else{  errorMessage="Please complete  all fields";
 }       
-    
+   console.log(errorMessage);	
 
 }
     
