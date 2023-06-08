@@ -13,7 +13,6 @@ const personalDetails = document.querySelector('#patient-details');
 //QR scanner
 
 function onScanSuccess(decodedText) {
-    console.log(`Code scanned = ${decodedText}`);
     //populate the patient details division with the values contained in 'decodedText' 
     var decodedObject = JSON.parse(decodedText);
     patientNames.innerHTML = decodedObject.patientName;
