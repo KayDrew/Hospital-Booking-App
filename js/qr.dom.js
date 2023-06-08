@@ -14,12 +14,13 @@ const personalDetails = document.querySelector('#patient-details');
 function onScanSuccess(decodedText, decodedResult) {
     console.log(`Code scanned = ${decodedText}`, decodedResult);
     //populate the patient details division with the values contained in 'decodedText' 
-    patientNames.innerHTML = decodedText.name;
-    patientGender.innerHTML = decodedText.gender;
-    patientAge.innerHTML = decodedText.age;
-    patientContact.innerHTML = decodedText.contact;
-    patientEmail.innerHTML = decodedText.email;
-    patientID.innerHTML = decodedText.id;
+    var decodedObject = JSON.parse(decodedText);
+    patientNames.innerHTML = decodedObject.name;
+    patientGender.innerHTML = decodedObject.gender;
+    patientAge.innerHTML = decodedObject.age;
+    patientContact.innerHTML = decodedObject.contact;
+    patientEmail.innerHTML = decodedObject.email;
+    patientID.innerHTML = decodedObject.id;
     html5QrcodeScanner.clear();
     personalDetails.style.visibility = 'visible';
 }
