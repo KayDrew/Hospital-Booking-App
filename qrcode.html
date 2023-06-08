@@ -45,14 +45,14 @@
 <script src="./booking.js"></script>
     <script>
 	
-	let patients= JSON.parse(localStorage.getItem("patientID"));
-	let patientID= patients[0];
+	let patients= JSON.parse(localStorage.getItem("patientInfo"));
+	let patient= JSON.stringify(patients[0]);
 		
-        var qrcode = new QRCode("qrcode",patientID);
+        var qrcode = new QRCode("qrcode",patient);
 
 
-//console.log(patients);
-//console.log(count);
+console.log(patient);
+
     </script>
 
 </body>

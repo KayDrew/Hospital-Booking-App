@@ -1,10 +1,9 @@
-let uniqueID=localStorage.getItem("patientID");
+let uniqueID=localStorage.getItem("patientIfo");
 let count= localStorage.getItem("count");
 
 
 function Booking(){
     var patientInfo = [];
-    var patientId = [];
     let increment=-1;
    
    
@@ -19,8 +18,7 @@ function Booking(){
             }
 
             patientInfo.push(patientFormat);
-            patientId.push(patientID);
-            localStorage.setItem("patientID",JSON.stringify(patientId));
+            localStorage.setItem("patientInfo",JSON.stringify(patientInfo));
             
             if(count===null){
          count=0;
@@ -47,8 +45,7 @@ count++;}
                     }
         
                     patientInfo.push(patientFormat);
-                    patientId.push(patientID);
-                    localStorage.setItem("patientID",JSON.stringify(patientId));
+                    localStorage.setItem("patientInfo",JSON.stringify(patientInfo));
                     
                    if(count===null){
                     count=0;
