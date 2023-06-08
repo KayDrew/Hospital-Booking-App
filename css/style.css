@@ -6,6 +6,10 @@ html{
     font-weight: 700;
     background-color: lightgrey;
 }
+
+body{
+    background-color: #00adef;
+}
 .container {
     max-width: 1080px;
     margin: 0 auto;
