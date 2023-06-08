@@ -67,7 +67,9 @@ select, input {
 .backBtn{
     margin: 1em 0em 0em 0em !important;
 }
-
+.message {
+    font-size: large;
+}
 #patient-details{
     display: flex;
     justify-content: center;
