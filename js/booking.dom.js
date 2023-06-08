@@ -1,6 +1,6 @@
 // DOM element(s) references
 const departmentElem = document.getElementById("departments"); 
-const dateElem = document.getElementById("appointmentDate");
+const dateElem = document.querySelector("#appointmentDate");
 const nextBtnElem = document.querySelector(".nextBtn");
 const nameSurnameElem = document.querySelector("#nameSurname");
 const genderElem = document.getElementById("gender");
@@ -13,25 +13,9 @@ const bookNowBtnElem = document.querySelector(".bookNowBtn");
 const landingInfoElem = document.getElementsByClassName("landingInfo");
 const personalInfoElem = document.getElementsByClassName("personalInfo");
 const successInfoElem = document.getElementsByClassName("successInfo");
+const errorMessage= document.querySelector(".errorMessage");
 
 
-
-// *Testing the DOM References
-    console.log(departmentElem);
-    console.log(dateElem);
-    console.log(nextBtnElem);
-    console.log(nameSurnameElem);
-    console.log(genderElem);
-    console.log(ageElem);
-    console.log(contactNumberElem);
-    console.log(emailAddressElem);
-    console.log(idNumberElem);
-    console.log(backBtnElem);
-    console.log(bookNowBtnElem);
-    console.log(landingInfoElem);
-    console.log(personalInfoElem);
-    console.log(successInfoElem);
-// *End of testing
 
 // Add event listeners to buttons
 nextBtnElem.addEventListener('click',nextBtn_onClick);
@@ -46,7 +30,9 @@ const bookingApp = Booking();
 
 // DOM events
 function idNumber_keyUp() {
+	
     if(idNumberElem.value.length === 13){
+    	
         var event = new Event("change");
         var result = getAgeAndGender(idNumberElem.value);
         
@@ -58,6 +44,7 @@ function idNumber_keyUp() {
 }
 
 function getAgeAndGender(idNumber) {
+	
     var birthdate = idNumber.substr(0, 6);
   
     // Extract gender and citizenship information from ID number
@@ -99,6 +86,12 @@ function getAgeAndGender(idNumber) {
 }
 
 function nextBtn_onClick() {
+	
+	var departmentSelected = departmentElem.options[departmentElem.selectedIndex].value;
+	
+	if(dateElem.value !=="" &&  dateElem.value!==null && (departmentSelected =="endocrine" || departmentSelected=="mva" || departmentSelected=="neurology")){
+		
+		
     // Hide first section
     landingInfoElem[0].style.visibility = 'hidden';
     landingInfoElem[0].style.display = 'none';
@@ -110,6 +103,22 @@ function nextBtn_onClick() {
     // Hide third section
     successInfoElem[0].style.visibility = 'hidden';
     successInfoElem[0].style.display = 'none';
+    
+  }
+  
+  else{
+  	
+errorMessage.style.visibility="visible"
+errorMessage.innerHTML="Please complete  all fields";
+
+setTimeout(function(){
+errorMessage.style.visibility="hidden";
+
+},4000);
+}
+
+console.log(dateElem.value);
+
 }
 
 function backBtn_onClick() {
@@ -127,19 +136,8 @@ function backBtn_onClick() {
 }
 
 function bookNowBtn_onClick() {
-    // Hide first section
-    landingInfoElem[0].style.visibility = 'hidden';
-    landingInfoElem[0].style.display = 'none';
-
-    // Hide second section
-    personalInfoElem[0].style.visibility = 'hidden';
-    personalInfoElem[0].style.display = 'none';
-
-    // Show third section
-    successInfoElem[0].style.visibility = 'visible';
-    successInfoElem[0].style.display = 'flex';
-    
-    // get selected department
+	
+	   // get selected department
     var departmentSelected = departmentElem.options[departmentElem.selectedIndex].value;
 
     // get selected gender
@@ -149,7 +147,8 @@ function bookNowBtn_onClick() {
     
     let getInfo= getAgeAndGender(idNumberElem.value);
 
-    var name= nameSurnameElem.value;
+	    //retrieve  information  from user
+	    var name= nameSurnameElem.value;
     var patientID= idNumberElem.value;
     var email = emailAddressElem.value;
     var age=getInfo.age;
@@ -169,12 +168,26 @@ else{
 gender="other";}
     var contact= contactNumberElem.value;
     
-    //retrieve  information  from user
-
     bookingApp.setPatientInfo(patientID,name,age,gender, email,contact);  
+    
         
+	if(bookingApp.getErrorMessage()=="success"){
+	
+    // Hide first section
+    landingInfoElem[0].style.visibility = 'hidden';
+    landingInfoElem[0].style.display = 'none';
+
+    // Hide second section
+    personalInfoElem[0].style.visibility = 'hidden';
+    personalInfoElem[0].style.display = 'none';
+
+    // Show third section
+    successInfoElem[0].style.visibility = 'visible';
+    successInfoElem[0].style.display = 'flex';
+     
+
     var subject="CONFIRMATION OF BOOKING";
-    var message="Your booking for " + departmentSelected +" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
+    var message="Your booking for " + departmentSelected + " at "+dateElem.value+" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
 
 
             var params={
@@ -203,6 +216,22 @@ gender="other";}
 
         ).catch((err)=> console.log(err));
             
-   
+}   
+    else{
+errorMessage.style.visibility="visible";
+    landingInfoElem[0].style.visibility = 'hidden';
+    landingInfoElem[0].style.display = 'none';
+
+    // Hide second section
+    personalInfoElem[0].style.visibility = 'visible';
+    personalInfoElem[0].style.display = 'flex';
     
+    errorMessage.innerHTML=bookingApp.getErrorMessage();
+    
+    setTimeout(function(){
+errorMessage.style.visibility="hidden";
+
+},4000);
+
+}
 }

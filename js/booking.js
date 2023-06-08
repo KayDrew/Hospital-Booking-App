@@ -1,13 +1,19 @@
 let uniqueID=localStorage.getItem("patientIfo");
-let count= localStorage.getItem("count");
+
 
 
 function Booking(){
     var patientInfo = [];
-    let increment=-1;
+    var patientId=[];
+    var errorMessage="success";    
    
    
     function setPatientInfo(patientID, name, age,gender, email, contact){
+    	
+    if(patientID && name && age && gender && email && contact){
+    	
+    errorMessage ="success";
+
         if(patientInfo.length === 0){
             var patientFormat = {
                 id: patientID,
@@ -20,19 +26,11 @@ function Booking(){
             }
 
             patientInfo.push(patientFormat);
+         patientId.push(patientID);
             localStorage.setItem("patientInfo",JSON.stringify(patientInfo));
             
-            if(count===null){
-         count=0;
-           }
+      
            
-           else{
-count++;}
-
-
-            localStorage.setItem("count",count); 
-            
-   
             
         } else { //the array is NOT empty
             //loop through patient Id array 
@@ -48,22 +46,22 @@ count++;}
                     }
         
                     patientInfo.push(patientFormat);
+                    patientId.push(patientID);
+                    
                     localStorage.setItem("patientInfo",JSON.stringify(patientInfo));
                     
-                   if(count===null){
-                    count=0;
-                 }
-           
-               else{
-            count++;
-                }
-                    localStorage.setItem("count",count);                    
+          
                 }
             }
         }
         
-        
-    }
+}
+
+else{  errorMessage="Please complete  all fields";
+}       
+    
+
+}
     
 
         //getters
@@ -76,12 +74,18 @@ count++;}
         }
         
         
+        function  getErrorMessage(){
+
+return errorMessage;
+}
+        
+        
     return{
      
         setPatientInfo,
         getPatientInfo,
         getPatientIDs,
-        
+        getErrorMessage         
     }
 
 }
