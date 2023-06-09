@@ -66,7 +66,7 @@ input#appointmentDate{
     margin: 0 -27px 0 8px;
 }
 select, input {
-    width:200px !important;
+    /* width:200px !important; */
     display:block;
     font-size: medium;
     font-family: 'Chakra Petch', sans-serif;
@@ -83,7 +83,7 @@ select, input {
 .personal-label, .personal-input{
     width: 50%;
     height: 50%;
-    margin: 2% 0;
+    margin: 1% 0;
 }
 .errorMessage{
     display: block;
@@ -104,7 +104,8 @@ select, input {
     box-shadow: 1px 1px 5px black;
     cursor: pointer;
     font-weight: bold;
-    margin: 1em 0em 0.5em 0em;
+    /* margin: 1em 0em 0.5em 0em; */
+    margin:10px auto;
     padding: 2% 3%;
     width: 200px !important;
 }
@@ -122,24 +123,24 @@ select, input {
     font-weight: bold;
     padding: 10px;
  }
-.backBtn{
+/* .backBtn{
     margin: 1em 1em 0em 0em !important;
-}
+} */
 
-.bookNowBtn{
+/* .bookNowBtn{
     margin: 5% 0 0 2%;
-}
+} */
 
-.nextBtn{
+/* .nextBtn{
     margin: 10% 0 0 10%;
-}
+} */
 .message {
     font-size: large;
     margin: 7% 0 0 0;
 }
 
 #gender{
-    margin: 0;
+    width: 51%;
 }
 
 /* QR Code styles*/
@@ -201,34 +202,49 @@ div#qr-reader span:first-of-type {
 @media screen AND (max-width: 1042px) {
     body{
         background-color: rgba(0, 173, 239,0.5);;
-    }
+    } 
     .container{
         height: 100%;
         margin: 0;
         padding: 0 0 8% 0;
     }
-}
+} */
 
 @media screen AND (max-width: 430px){
 
     .container{
-        margin: 0;
+        max-width: 410px;
     }
-
+    h1 {
+        margin:0 auto;
+        text-align: center;
+    }
     .formField{
         flex-direction: column;
     }
-
-    .personal-label{
-        font-size: 95%;
+    input#appointmentDate {
+        width: 195px !important;
+        margin: 0;
     }
-
-    .personal-info{
+     .personal-label{
+        /* font-size: 95%; */
+        width: 98%;
+    }
+    #gender{
+        width: 100%;
+    }
+    /* .personal-info{
         margin: 0 0 0 50%;
-    }
+    } */
 
     #departments{
-        margin: 0 0 0 35%;
+        margin: 0/*0 0 0 35%*/;
     }
-
-} */
+    label {
+        font-size: medium;
+        padding: 0 5%;
+        margin: 0 3%;
+        width: 98%;
+        /*font-size: larger;*/
+    }
+}
