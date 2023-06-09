@@ -110,7 +110,8 @@ function nextBtn_onClick() {
   else{
   //input fields were not filled correctly 
   //show error message 
-errorMessage.style.visibility="visible"
+errorMessage.style.visibility="visible";
+errorMessage.style.display="block";
 errorMessage.innerHTML="Please complete  all fields";
 
 //clear any existing timeout methods 
@@ -118,6 +119,7 @@ clearTimeout();
 //create new timeout method for the error message
 setTimeout(function(){
 errorMessage.style.visibility="hidden";
+errorMessage.style.display="none";
 
 },4000);
 }
