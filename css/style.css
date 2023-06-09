@@ -1,38 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-html{
+body{
     background-color: #FFFFFF;
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
     background-color: lightgrey;
     font-size: large;
+    text-shadow: 1px 1px 5px lightgreen;
 }
 
 .container {
     max-width: 1080px;
-    margin: 0 auto;
+    width: 100vw;
+    margin: 0 0 0 10%;
     padding-top: 3em;
     background-color: rgba(0, 173, 239,0.5);
-    height:530px !important;
-    position: absolute;
-    left: 35%;
-    top: 30%;
-    height: 200px;
-    margin-top: -100px;/* half of you height */
-    margin-left: -200px; /* half of you width */
+    height: 100vh;
+    padding-bottom: 3em; 
 }
  #qr-div{
     max-width: 1080px;
-    margin: 0 auto;
     padding-top: 3em;
     background-color: rgba(0, 173, 239,0.5);
     height:930px !important;
     position: absolute;
-    left: 35%;
-    top: 30%;
     height: 200px;
-    margin-top: -100px;/* half of you height */
-    margin-left: -200px; /* half of you width */
+ }
+ #qr{
+    margin: 0 0 0 20%;
  }
 .headerSection,.form {
     display: flex;
@@ -52,10 +47,17 @@ section {
 }
 .formField {
     width: 80%;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 label {
     font-size: larger;
+}
+
+input{
+    margin: 0 0 0 5%;
 }
 select, input {
     width:192px !important;
@@ -68,6 +70,20 @@ select, input {
     height:380px !important;
     justify-content: center;
 }
+.personalInfo{
+    margin: 8% 0 0 0;
+}
+
+.personal-label, .personal-input{
+    width: 50%;
+    height: 50%;
+    margin: 2% 0;
+}
+.errorMessage{
+    margin: 5% 0 0 43%;
+    color: crimson;
+    font-size: 95%;
+}
 .personalInfo, .successInfo {
     visibility: hidden;
     display: none;
@@ -76,10 +92,19 @@ select, input {
     background-color: rgba(238, 65, 53,0.85);
     color: rgba(0, 0, 0, 1);
     border:0px solid;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
     cursor: pointer;
     font-weight: bold;
     margin: 1em 0em 0.5em 0em;
+    padding: 2% 3%;
     width: 200px !important;
+}
+
+.btn:hover{
+    background-color: #fff;
+    text-shadow: 1px 1px 10px lightgreen;
+    color: crimson;
 }
  button {
     background-color: rgba(238, 65, 53,0.85);
@@ -90,10 +115,23 @@ select, input {
     padding: 10px;
  }
 .backBtn{
-    margin: 1em 0em 0em 0em !important;
+    margin: 1em 1em 0em 0em !important;
+}
+
+.bookNowBtn{
+    margin: 5% 0 0 2%;
+}
+
+.nextBtn{
+    margin: 10% 0 0 10%;
 }
 .message {
     font-size: large;
+    margin: 7% 0 0 0;
+}
+
+#gender{
+    margin: 0;
 }
 
 /* QR Code styles*/
@@ -125,9 +163,10 @@ div#qr-reader span:first-of-type {
 }
 
 .outputs{
-    border: 1px solid black;
     width: 50%;
     text-align: center;
+    color: white;
+    text-shadow: 1px 1px 4px black;
 }
 
 #hospital-logo{
@@ -141,4 +180,58 @@ div#qr-reader span:first-of-type {
 #accept-patient{
     margin: 5% 0 5% 8%;
     padding: 1% 3%;
+}
+
+#departments{
+    margin: 0 0 0 5%;
+}
+
+#appointmentDate{
+    margin: 0 0 0 34%;
+}
+
+@media screen AND (max-width: 1500px){
+    .container{
+        height: 100%;
+    }
+}
+
+@media screen AND (max-width: 1042px) {
+    body{
+        background-color: rgba(0, 173, 239,0.5);;
+    }
+    .container{
+        background-color: lime;
+        height: 100%;
+        margin: 0;
+        padding: 0 0 8% 0;
+    }
+}
+
+@media screen AND (max-width: 430px){
+    body{
+        background-color: blue;
+    }
+
+    .container{
+        background-color: yellow;
+        margin: 0;
+    }
+
+    .formField{
+        flex-direction: column;
+    }
+
+    .personal-label{
+        font-size: 95%;
+    }
+
+    .personal-info{
+        margin: 0 0 0 50%;
+    }
+
+    #departments{
+        margin: 0 0 0 35%;
+    }
+
 }
