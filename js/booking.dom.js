@@ -89,6 +89,7 @@ function nextBtn_onClick() {
 	
 	var departmentSelected = departmentElem.options[departmentElem.selectedIndex].value;
 	
+	//check if all input fields were correctly filled in
 	if(dateElem.value !=="" &&  dateElem.value!==null && (departmentSelected =="endocrine" || departmentSelected=="mva" || departmentSelected=="neurology")){
 		
 		
@@ -107,18 +108,21 @@ function nextBtn_onClick() {
   }
   
   else{
-  	
+  //input fields were not filled correctly 
+  //show error message 
 errorMessage.style.visibility="visible"
 errorMessage.innerHTML="Please complete  all fields";
 
+//clear any existing timeout methods 
 clearTimeout();
+//create new timeout method for the error message
 setTimeout(function(){
 errorMessage.style.visibility="hidden";
 
 },4000);
 }
 
-console.log(dateElem.value);
+
 
 }
 
@@ -155,23 +159,24 @@ function bookNowBtn_onClick() {
     var age=getInfo.age;
     var gender= getInfo.gender;
     
+    //set appropriate gender based on selection 
     if(gender===1){
-gender="male"
+    gender="male"
+      }
 
-}
+   else if(gender===2){
+    gender="female";
+    }
 
-else if(gender===2){
-gender="female";
-}
+  else{
 
-else{
-
-gender="other";}
+   gender="other";}
     var contact= contactNumberElem.value;
     
+    //Retrieve information  from input fields
     bookingApp.setPatientInfo(patientID,name,age,gender, email,contact);  
     
-        
+        // check if there are any errors
 	if(bookingApp.getErrorMessage()=="success"){
 	
     // Hide first section
@@ -186,11 +191,11 @@ gender="other";}
     successInfoElem[0].style.visibility = 'visible';
     successInfoElem[0].style.display = 'flex';
      
-
+//set email subject and message
     var subject="CONFIRMATION OF BOOKING";
     var message="Your booking for the " + departmentSelected + " department at "+dateElem.value+" has been confirmed. Click the link below to find your unique  QR code to scan at the hospital." + "\n \nhttps://kaydrew.github.io/Hospital-Booking-App/qrcode.html";
 
-
+//set parameter for the email function 
             var params={
             name: name,
             from_name: "Baragwanath Hospital Management",
@@ -199,9 +204,11 @@ gender="other";}
             message: message
         }
 
+//email site credentials 
         const serviceID="service_jjy4npj";
         const templateID="template_nm641b6";
 
+//send an email
         emailjs.send(serviceID,templateID,params).
         then(
             res=>{
@@ -219,6 +226,8 @@ gender="other";}
             
 }   
     else{
+    	
+    //there was an error. do not show next section
 errorMessage.style.visibility="visible";
     landingInfoElem[0].style.visibility = 'hidden';
     landingInfoElem[0].style.display = 'none';
@@ -227,9 +236,13 @@ errorMessage.style.visibility="visible";
     personalInfoElem[0].style.visibility = 'visible';
     personalInfoElem[0].style.display = 'flex';
     
+    //display error messages
     errorMessage.innerHTML=bookingApp.getErrorMessage();
     
-    clearTimeout();
+    
+    //clear any existing timeout methods 
+clearTimeout();
+//create new timeout method for the error message
     setTimeout(function(){
 errorMessage.style.visibility="hidden";
 
