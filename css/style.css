@@ -115,14 +115,7 @@ select, input {
     /* text-shadow: 1px 1px 10px lightgreen; */
     color: rgb(238, 65, 53);
 }
- button {
-    background-color: rgba(238, 65, 53,0.85);
-    color: rgba(0, 0, 0, 1);
-    border:0px solid;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px;
- }
+ 
 /* .backBtn{
     margin: 1em 1em 0em 0em !important;
 } */
@@ -147,7 +140,29 @@ select, input {
 div#qr-reader span:first-of-type {
     display: none;
 }
+span#qr-reader__status_span {
+    display: none !important;
+}
 
+button {
+    background-color: rgba(238, 65, 53,0.85);
+    color: rgba(0, 0, 0, 1);
+    border:0px solid;
+    
+    padding: 10px;
+
+    
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+    font-weight: bold;
+    
+ }
+ button:hover{
+    background-color: #fff;
+    /* text-shadow: 1px 1px 10px lightgreen; */
+    color: rgb(238, 65, 53);
+}
 #patient-details{
     display: flex;
     justify-content: center;
