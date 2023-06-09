@@ -201,7 +201,6 @@ div#qr-reader span:first-of-type {
         background-color: rgba(0, 173, 239,0.5);;
     }
     .container{
-        background-color: lime;
         height: 100%;
         margin: 0;
         padding: 0 0 8% 0;
@@ -209,12 +208,8 @@ div#qr-reader span:first-of-type {
 }
 
 @media screen AND (max-width: 430px){
-    body{
-        background-color: blue;
-    }
 
     .container{
-        background-color: yellow;
         margin: 0;
     }
 
