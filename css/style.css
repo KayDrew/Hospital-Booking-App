@@ -161,13 +161,20 @@ div#qr-reader span:first-of-type {
 .patient-info{
     width: 50%;
     display: flex;
-    margin: 0 2%;
-    padding: 0 3%;
+    /* flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; */
+    /* margin: 0 2%;
+    padding: 0 3%; */
+}
+.label {
+    margin: 0 auto;
+    width: 50%;
 }
 
 .outputs{
     width: 50%;
-    text-align: center;
+    text-align: left;
     color: white;
     /* text-shadow: 1px 1px 4px black; */
 }
